@@ -583,7 +583,7 @@ namespace BBScore
 		private int CalculateThemScore()
 		{
 			int score = 0;
-			for (int i = 1; i < Questions.Count; i++) {
+			for (int i = 1; i <= Questions.Count; i++) {
 				if (Questions [i].TheyGotIt) {
 					score += 10;
 					score += Questions [i].BonusScore (Questions [i].BonusEarned);
