@@ -44,10 +44,10 @@ namespace BBScore.iOS
 				if (timerTask != null)
 					timerTask.Stop ();
 			});
-			MessagingCenter.Subscribe<CancelledMessage> (this, "CancelledMessage", message => {
-				if (timerTask != null)
-					timerTask.Stop ();
-			});
+//			MessagingCenter.Subscribe<CancelledMessage> (this, "CancelledMessage", message => {
+//				if (timerTask != null)
+//					timerTask.Stop ();
+//			});
 		}
 	}
 }

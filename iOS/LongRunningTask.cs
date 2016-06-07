@@ -25,14 +25,14 @@ namespace BBScore.iOS
 				await counter.Start(_cts.Token);
 
 			} catch (OperationCanceledException) {
-			} finally {
-				if (_cts.IsCancellationRequested) {
-					var message = new CancelledMessage();
-//					Device.BeginInvokeOnMainThread (
-//						() => MessagingCenter.Send(message, "CancelledMessage")
-//					);
-				}
-			}
+			} //finally {
+//				if (_cts.IsCancellationRequested) {
+//					var message = new CancelledMessage();
+////					Device.BeginInvokeOnMainThread (
+////						() => MessagingCenter.Send(message, "CancelledMessage")
+////					);
+//				}
+//			}
 
 			UIApplication.SharedApplication.EndBackgroundTask (_taskId);
 		}
