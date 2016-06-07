@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<!-- Top line: Score, Question Index  -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvUs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:textSize="16sp"
+            android:text="Us" />
+        <TextView
+            android:id="@+id/tvScoreUs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:textStyle="bold"
+            android:text=" 0 "
+            android:textSize="24sp" />
+        <TextView
+            android:id="@+id/tvThem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:text="Them"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/tvScoreThem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:textStyle="bold"
+            android:text=" 0 "
+            android:textSize="24sp" />
+    </LinearLayout>
+    <TableRow
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <View
+            android:id="@+id/linebreak"
+            android:layout_height="3dip"
+            android:background="#FF909090"
+            android:layout_marginBottom="2sp"
+            android:layout_weight="1" />
+    </TableRow>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btPrevQuestion"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:text="&lt; Prev" />
+        <Button
+            android:id="@+id/btTossupInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1/15"
+            android:textStyle="bold"
+            android:layout_weight="0.5"
+            android:gravity="center_horizontal"
+            android:textSize="20sp" />
+        <Button
+            android:id="@+id/btNextQuestion"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:text="Next &gt;" />
+    </LinearLayout>
+    <TableRow
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <View
+            android:id="@+id/linebreak2"
+            android:layout_height="3dip"
+            android:background="#FF909090"
+            android:layout_marginBottom="2sp"
+            android:layout_weight="1" />
+    </TableRow>
+<!-- Tossup Header -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvTossup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tossup" />
+    </LinearLayout>
+<!-- Player 1 & 2 in same row -->
+    <TableRow
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+    <!-- <TextView android:id="@+id/tvPlayer1"
+	   		android:layout_width="wrap_content"
+	   		android:layout_height="wrap_content"
+	   		android:layout_weight=".16"
+	   		android:text="Player 1" />  -->
+        <ToggleButton
+            android:id="@+id/P1Correct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".16"
+            android:textOff="10"
+            android:textOn="10" />
+        <ToggleButton
+            android:id="@+id/P1Miss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".16"
+            android:textOff="X"
+            android:textOn="X" />
+    <!-- <TextView android:id="@+id/tvPlayer2"
+	   		android:layout_width="wrap_content"
+	   		android:layout_height="wrap_content"
+	   		android:layout_weight=".16"
+	   		android:text="Player 2" />  -->
+        <ToggleButton
+            android:id="@+id/P2Correct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".16"
+            android:textOff="10"
+            android:textOn="10" />
+        <ToggleButton
+            android:id="@+id/P2Miss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".16"
+            android:textOff="X"
+            android:textOn="X" />
+    </TableRow>
+<!-- Player 3 & 4 in same row-->
+    <TableRow
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+    <!-- <TextView android:id="@+id/tvPlayer3"
+	   		android:layout_width="wrap_content"
+	   		android:layout_height="wrap_content"
+	   		android:layout_weight=".16"
+	   		android:text="Player 3" /> -->
+        <ToggleButton
+            android:id="@+id/P3Correct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            android:textOff="10"
+            android:textOn="10" />
+        <ToggleButton
+            android:id="@+id/P3Miss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            android:textOff="X"
+            android:textOn="X" />
+    <!-- <TextView android:id="@+id/tvPlayer4"
+	   		android:layout_width="wrap_content"
+	   		android:layout_height="wrap_content"
+	   		android:layout_weight=".16"
+	   		android:text="Player 4" /> -->
+        <ToggleButton
+            android:id="@+id/P4Correct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            android:textOff="10"
+            android:textOn="10" />
+        <ToggleButton
+            android:id="@+id/P4Miss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            android:textOff="X"
+            android:textOn="X" />
+    </TableRow>
+<!-- Other Team -->
+    <TableRow
+        android:orientation="horizontal">
+    <!-- <TextView android:id="@+id/tvThem"
+	   		android:layout_width="wrap_content"
+	   		android:layout_height="wrap_content"
+	   		android:layout_weight=".16"
+	   		android:text="Them" />  -->
+        <ToggleButton
+            android:id="@+id/ThemCorrect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            android:textOff="10"
+            android:textOn="Them"
+            android:layout_column="1" />
+        <ToggleButton
+            android:id="@+id/ThemMiss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            android:textOff="X"
+            android:textOn="X"
+            android:layout_column="2" />
+    </TableRow>
+    <TableRow
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <View
+            android:id="@+id/linebreak3"
+            android:layout_height="3dip"
+            android:background="#FF909090"
+            android:layout_marginBottom="2sp"
+            android:layout_weight="1" />
+    </TableRow>
+<!-- Bonus Possible Header -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvBonusPossible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bonus Possible" />
+    </LinearLayout>
+<!-- Bonus Possible Values -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <ToggleButton
+            android:id="@+id/btBonusPossible20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:textOff="20"
+            android:textOn="20" />
+        <ToggleButton
+            android:id="@+id/btBonusPossible25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:textOff="25"
+            android:textOn="25" />
+        <ToggleButton
+            android:id="@+id/btBonusPossible30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:textOff="30"
+            android:textOn="30" />
+        <ToggleButton
+            android:id="@+id/btBonusPossible35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:textOff="35"
+            android:textOn="35" />
+        <ToggleButton
+            android:id="@+id/btBonusPossible40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:textOff="40"
+            android:textOn="40" />
+    </LinearLayout>
+<!-- Bonus Earned Header -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvBonusEarned"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bonus Earned" />
+    </LinearLayout>
+<!-- Bonus Earned Values 0-15 -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <ToggleButton
+            android:id="@+id/btBonusEarned0"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:textOff="0"
+            android:textOn="0" />
+        <ToggleButton
+            android:id="@+id/btBonusEarned5"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:textOff="5"
+            android:textOn="5" />
+        <ToggleButton
+            android:id="@+id/btBonusEarned10"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:textOff="10"
+            android:textOn="10" />
+        <ToggleButton
+            android:id="@+id/btBonusEarned15"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:textOff="15"
+            android:textOn="15" />
+    </LinearLayout>
+<!-- Bonus Earned Values 20-40 -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <ToggleButton
+            android:id="@+id/btBonusEarned20"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:textOff="20"
+            android:textOn="20" />
+        <ToggleButton
+            android:id="@+id/btBonusEarned25"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:textOff="25"
+            android:textOn="25" />
+        <ToggleButton
+            android:id="@+id/btBonusEarned30"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:textOff="30"
+            android:textOn="30" />
+        <ToggleButton
+            android:id="@+id/btBonusEarned35"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:textOff="35"
+            android:textOn="35" />
+        <ToggleButton
+            android:id="@+id/btBonusEarned40"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:textOff="40"
+            android:textOn="40" />
+    </LinearLayout>
+    <TableRow
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <View
+            android:id="@+id/linebreak4"
+            android:layout_height="3dip"
+            android:background="#FF909090"
+            android:layout_marginBottom="2sp"
+            android:layout_weight="1" />
+    </TableRow>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/llBottomRow"
+        android:orientation="horizontal">
+        <ToggleButton
+            android:id="@+id/tvTimeRemaining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textOff="Timer"
+            android:height="50sp"
+            android:layout_marginBottom="5sp" />
+        <Button
+            android:id="@+id/btViewScoresheet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:text="View Scoresheet"
+            android:height="50sp"
+            android:layout_marginTop="6sp" />
+        <Button
+            android:id="@+id/btNewGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:layout_alignParentRight="true"
+            android:text="Done"
+            android:height="50sp"
+            android:layout_marginTop="6sp" />
+    </LinearLayout>
+</TableLayout>

@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local="clr-namespace:BBScore;assembly=BBScore"
+	x:Class="BBScore.GamePlay"
+	Title="Game"
+	BackgroundColor="{Binding BackgroundColor}">
+	<ContentPage.BindingContext>
+		<local:Game/>
+	</ContentPage.BindingContext>
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<local:BoolColorConverter x:Key="StatusColorConverter" />
+			<Style x:Key="LabelStyle" TargetType="Label">
+				<Setter Property="VerticalTextAlignment" Value="Center" />
+				<Setter Property="TextColor" Value="White" />
+			</Style>
+			<Style x:Key="ButtonStyle" TargetType="Button">
+				<Setter Property="BackgroundColor" Value="White" />
+				<Setter Property="TextColor" Value="Black" />
+			</Style>
+			<Style x:Key="ToggleButtonStyle" TargetType="Button">
+				<Setter Property="BorderRadius" Value="1" />
+				<Setter Property="BackgroundColor" Value="White" />
+				<Setter Property="TextColor" Value="Black" />
+			</Style>
+			<Style x:Key="GridStyle" TargetType="Grid">
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />	<!-- 0:  Score -->
+			<RowDefinition Height="*" />   <!-- 1:  Question Navigation -->
+			<RowDefinition Height=".5*" />   <!-- 2:  "Tossup" title -->
+			<RowDefinition Height="*" />   <!-- 3:  Player 1 and 2 -->
+			<RowDefinition Height="*" />   <!-- 4:  Player 3 and 4 -->
+			<RowDefinition Height="*" />   <!-- 5:  "Them" -->
+			<RowDefinition Height=".5*" />   <!-- 6:  "Bonus Possible" title -->
+			<RowDefinition Height="*" />   <!-- 7:  Bonus possible values -->
+			<RowDefinition Height=".5*" />   <!-- 8:  "Bonus Earned" header -->
+			<RowDefinition Height="*" />   <!-- 9:  Bonus earned values 1 of 2 -->
+			<RowDefinition Height="*" />   <!-- 10: Bonus earned values 2 of 2 -->
+			<RowDefinition Height=".25*" />   <!-- 11: Separator -->
+			<RowDefinition Height="*" />   <!-- 12: Timer, scoresheet, "Done" -->
+		</Grid.RowDefinitions>
+		<!-- Score -->
+		<Grid Grid.Row="0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" /> 	<!-- Team  -->
+				<ColumnDefinition Width=".5*" /> <!-- Score -->
+				<ColumnDefinition Width="*" /> 	<!-- Opponent  -->
+				<ColumnDefinition Width=".5*" /> <!-- Score -->
+			</Grid.ColumnDefinitions>
+			<Label Grid.Column="0" x:Name="lblTeamName" Text="{Binding TeamName}" Style="{StaticResource LabelStyle}" />
+			<Label Grid.Column="1" x:Name="lblTeamScore" Text="{Binding UsScore}" Style="{StaticResource LabelStyle}" Font="Bold, 24" />
+			<Label Grid.Column="2" x:Name="lblOppName" Text="{Binding OppName}" Style="{StaticResource LabelStyle}" />
+			<Label Grid.Column="3" x:Name="lblOppScore" Text="{Binding ThemScore}" Style="{StaticResource LabelStyle}" Font="Bold, 24" />
+		</Grid>
+		<!-- Question Navigation -->
+		<Grid Grid.Row="1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Style="{StaticResource GridStyle}">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" /> 	<!-- Prev  -->
+				<ColumnDefinition Width="2*" /> <!-- Index -->
+				<ColumnDefinition Width="*" /> 	<!-- Next  -->
+			</Grid.ColumnDefinitions>
+			<Button x:Name="QPrev" Text="&lt;" Grid.Column="0" Style="{StaticResource ButtonStyle}" 
+				Command="{Binding PrevQuestionCommand}" CommandParameter="{x:Static local:WhichPlayer.None}" />
+			<Button x:Name="QIndex" Text="{Binding QuestionIndexText}" Grid.Column="1" Style="{StaticResource ButtonStyle}" />
+			<Button x:Name="QNext" Text="&gt;" Grid.Column="2" Style="{StaticResource ButtonStyle}" 
+				Command="{Binding NextQuestionCommand}" CommandParameter="{x:Static local:WhichPlayer.None}" />
+		</Grid>
+		<!-- "Tossup" Title -->
+		<StackLayout Grid.Row="2" Orientation="Vertical">
+			<Label Text="Tossup" Style="{StaticResource LabelStyle}" />
+			<BoxView Color="White" HeightRequest="1" WidthRequest="10000" />
+		</StackLayout>
+		<!-- Players 1 and 2 -->
+		<Grid Grid.Row="3">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" /> <!-- P1 correct  -->
+				<ColumnDefinition Width="*" /> <!-- P1 miss -->
+				<ColumnDefinition Width="*" /> <!-- P2 correct  -->
+				<ColumnDefinition Width="*" /> <!-- P2 miss -->
+			</Grid.ColumnDefinitions>
+			<Button x:Name="CorrectP1" Text="{Binding P1Name}" Grid.Column="0" Style="{StaticResource ToggleButtonStyle}" 
+				Command="{Binding CorrectCommand}" CommandParameter="{x:Static local:WhichPlayer.Player1}" 
+				BackgroundColor="{Binding CorrectStatusP1, Converter={StaticResource StatusColorConverter}}" />
+			<Button x:Name="MissP1" Text="X" Grid.Column="1" Style="{StaticResource ToggleButtonStyle}" 
+				Command="{Binding MissCommand}" CommandParameter="{x:Static local:WhichPlayer.Player1}" 
+				BackgroundColor="{Binding MissStatusP1, Converter={StaticResource StatusColorConverter}}" />
+			<Button x:Name="CorrectP2" Text="{Binding P2Name}" Grid.Column="2" Style="{StaticResource ToggleButtonStyle}" 
+				Command="{Binding CorrectCommand}" CommandParameter="{x:Static local:WhichPlayer.Player2}" 
+				BackgroundColor="{Binding CorrectStatusP2, Converter={StaticResource StatusColorConverter}}" />
+			<Button x:Name="MissP2" Text="X" Grid.Column="3" Style="{StaticResource ToggleButtonStyle}" 
+				Command="{Binding MissCommand}" CommandParameter="{x:Static local:WhichPlayer.Player2}" 
+				BackgroundColor="{Binding MissStatusP2, Converter={StaticResource StatusColorConverter}}" />
+		</Grid>
+		<!-- Players 3 and 4 -->
+		<Grid Grid.Row="4">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" /> <!-- P3 correct  -->
+				<ColumnDefinition Width="*" /> <!-- P3 miss -->
+				<ColumnDefinition Width="*" /> <!-- P4 correct  -->
+				<ColumnDefinition Width="*" /> <!-- P4 miss -->
+			</Grid.ColumnDefinitions>
+			<Button x:Name="CorrectP3" Text="{Binding P3Name}" Grid.Column="0" Style="{StaticResource ToggleButtonStyle}" 
+				Command="{Binding CorrectCommand}" CommandParameter="{x:Static local:WhichPlayer.Player3}" 
+				BackgroundColor="{Binding CorrectStatusP3, Converter={StaticResource StatusColorConverter}}" />
+			<Button x:Name="MissP3" Text="X" Grid.Column="1" Style="{StaticResource ToggleButtonStyle}" 
+				Command="{Binding MissCommand}" CommandParameter="{x:Static local:WhichPlayer.Player3}" 
+				BackgroundColor="{Binding MissStatusP3, Converter={StaticResource StatusColorConverter}}" />
+			<Button x:Name="CorrectP4" Text="{Binding P4Name}" Grid.Column="2" Style="{StaticResource ToggleButtonStyle}" 
+				Command="{Binding CorrectCommand}" CommandParameter="{x:Static local:WhichPlayer.Player4}" 
+				BackgroundColor="{Binding CorrectStatusP4, Converter={StaticResource StatusColorConverter}}" />
+			<Button x:Name="MissP4" Text="X" Grid.Column="3" Style="{StaticResource ToggleButtonStyle}" 
+				Command="{Binding MissCommand}" CommandParameter="{x:Static local:WhichPlayer.Player4}" 
+				BackgroundColor="{Binding MissStatusP4, Converter={StaticResource StatusColorConverter}}" />
+		</Grid>
+		<!-- "Them" -->
+		<Grid Grid.Row="5">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<Button x:Name="CorrectThem" Text="{Binding OppName}"  Grid.Column="0" Style="{StaticResource ToggleButtonStyle}" 
+				Command="{Binding CorrectThemCommand}" CommandParameter="{x:Static local:WhichPlayer.Them}" 
+				BackgroundColor="{Binding CorrectStatusThem, Converter={StaticResource StatusColorConverter}}" />
+			<Button x:Name="MissThem" Text="X" Grid.Column="1" Style="{StaticResource ToggleButtonStyle}" 
+				Command="{Binding MissThemCommand}" CommandParameter="{x:Static local:WhichPlayer.Them}" 
+				BackgroundColor="{Binding MissStatusThem, Converter={StaticResource StatusColorConverter}}" />
+		</Grid>
+		<!-- "Bonus Possible" Title -->
+		<StackLayout Grid.Row="6" Orientation="Vertical">
+			<Label Text="Bonus Possible" Style="{StaticResource LabelStyle}" />
+			<BoxView Color="White" HeightRequest="1" WidthRequest="10000" />
+		</StackLayout>
+		<!-- Bonus Possible (20-40) -->
+		<Grid Grid.Row="7">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" /> <!-- 20 -->
+				<ColumnDefinition Width="*" /> <!-- 25 -->
+				<ColumnDefinition Width="*" /> <!-- 30 -->
+				<ColumnDefinition Width="*" /> <!-- 35 -->
+				<ColumnDefinition Width="*" /> <!-- 40 -->
+			</Grid.ColumnDefinitions>
+			<Button x:Name="BonusPossible20" Text="20" Grid.Column="0" Style="{StaticResource ToggleButtonStyle}" 
+				Command="{Binding BonusPossibleCommand}" CommandParameter="{x:Static local:BonusValue.BV_20}" 
+				BackgroundColor="{Binding BonusPossibleStatus20, Converter={StaticResource StatusColorConverter}}" />
+			<Button x:Name="BonusPossible25" Text="25" Grid.Column="1" Style="{StaticResource ToggleButtonStyle}" 
+				Command="{Binding BonusPossibleCommand}" CommandParameter="{x:Static local:BonusValue.BV_25}" 
+				BackgroundColor="{Binding BonusPossibleStatus25, Converter={StaticResource StatusColorConverter}}" />
+			<Button x:Name="BonusPossible30" Text="30" Grid.Column="2" Style="{StaticResource ToggleButtonStyle}" 
+				Command="{Binding BonusPossibleCommand}" CommandParameter="{x:Static local:BonusValue.BV_30}" 
+				BackgroundColor="{Binding BonusPossibleStatus30, Converter={StaticResource StatusColorConverter}}" />
+			<Button x:Name="BonusPossible35" Text="35" Grid.Column="3" Style="{StaticResource ToggleButtonStyle}" 
+				Command="{Binding BonusPossibleCommand}" CommandParameter="{x:Static local:BonusValue.BV_35}" 
+				BackgroundColor="{Binding BonusPossibleStatus35, Converter={StaticResource StatusColorConverter}}" />
+			<Button x:Name="BonusPossible40" Text="40" Grid.Column="4" Style="{StaticResource ToggleButtonStyle}" 
+				Command="{Binding BonusPossibleCommand}" CommandParameter="{x:Static local:BonusValue.BV_40}" 
+				BackgroundColor="{Binding BonusPossibleStatus40, Converter={StaticResource StatusColorConverter}}" />
+		</Grid>
+		<!-- "Bonus Earned" Title -->
+		<StackLayout Grid.Row="8" Orientation="Vertical">
+			<Label Text="Bonus Earned" Style="{StaticResource LabelStyle}" />
+			<BoxView Color="White" HeightRequest="1" WidthRequest="10000" />
+		</StackLayout>
+		<Grid Grid.Row="9">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" /> <!-- 0 -->
+				<ColumnDefinition Width="*" /> <!-- 5 -->
+				<ColumnDefinition Width="*" /> <!-- 10 -->
+				<ColumnDefinition Width="*" /> <!-- 15 -->
+			</Grid.ColumnDefinitions>
+			<Button x:Name="BonusEarned0" Text="0" Grid.Column="0" Style="{StaticResource ToggleButtonStyle}" 
+				Command="{Binding BonusEarnedCommand}" CommandParameter="{x:Static local:BonusValue.BV_0}" 
+				BackgroundColor="{Binding BonusEarnedStatus0, Converter={StaticResource StatusColorConverter}}" />
+			<Button x:Name="BonusEarned5" Text="5" Grid.Column="1" Style="{StaticResource ToggleButtonStyle}" 
+				Command="{Binding BonusEarnedCommand}" CommandParameter="{x:Static local:BonusValue.BV_5}" 
+				BackgroundColor="{Binding BonusEarnedStatus5, Converter={StaticResource StatusColorConverter}}" />
+			<Button x:Name="BonusEarned10" Text="10" Grid.Column="2" Style="{StaticResource ToggleButtonStyle}" 
+				Command="{Binding BonusEarnedCommand}" CommandParameter="{x:Static local:BonusValue.BV_10}" 
+				BackgroundColor="{Binding BonusEarnedStatus10, Converter={StaticResource StatusColorConverter}}" />
+			<Button x:Name="BonusEarned15" Text="15" Grid.Column="3" Style="{StaticResource ToggleButtonStyle}" 
+				Command="{Binding BonusEarnedCommand}" CommandParameter="{x:Static local:BonusValue.BV_15}" 
+				BackgroundColor="{Binding BonusEarnedStatus15, Converter={StaticResource StatusColorConverter}}" />
+		</Grid>
+		<Grid Grid.Row="10">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" /> <!-- 20 -->
+				<ColumnDefinition Width="*" /> <!-- 25 -->
+				<ColumnDefinition Width="*" /> <!-- 30 -->
+				<ColumnDefinition Width="*" /> <!-- 35 -->
+				<ColumnDefinition Width="*" /> <!-- 40 -->
+			</Grid.ColumnDefinitions>
+			<Button x:Name="BonusEarned20" Text="20" Grid.Column="0" Style="{StaticResource ToggleButtonStyle}" 
+				Command="{Binding BonusEarnedCommand}" CommandParameter="{x:Static local:BonusValue.BV_20}" 
+				BackgroundColor="{Binding BonusEarnedStatus20, Converter={StaticResource StatusColorConverter}}" />
+			<Button x:Name="BonusEarned25" Text="25" Grid.Column="1" Style="{StaticResource ToggleButtonStyle}" 
+				Command="{Binding BonusEarnedCommand}" CommandParameter="{x:Static local:BonusValue.BV_25}" 
+				BackgroundColor="{Binding BonusEarnedStatus25, Converter={StaticResource StatusColorConverter}}" 
+				IsEnabled="{Binding BonusEarnedEnabled25}" InputTransparent="{Binding BonusEarnedEnabled25}" />
+			<Button x:Name="BonusEarned30" Text="30" Grid.Column="2" Style="{StaticResource ToggleButtonStyle}" 
+				Command="{Binding BonusEarnedCommand}" CommandParameter="{x:Static local:BonusValue.BV_30}" 
+				BackgroundColor="{Binding BonusEarnedStatus30, Converter={StaticResource StatusColorConverter}}" 
+				IsEnabled="{Binding BonusEarnedEnabled30}" InputTransparent="{Binding BonusEarnedEnabled25}" />
+			<Button x:Name="BonusEarned35" Text="35" Grid.Column="3" Style="{StaticResource ToggleButtonStyle}" 
+				Command="{Binding BonusEarnedCommand}" CommandParameter="{x:Static local:BonusValue.BV_35}" 
+				BackgroundColor="{Binding BonusEarnedStatus35, Converter={StaticResource StatusColorConverter}}" 
+				IsEnabled="{Binding BonusEarnedEnabled35}" InputTransparent="{Binding BonusEarnedEnabled25}" />
+			<Button x:Name="BonusEarned40" Text="40" Grid.Column="4" Style="{StaticResource ToggleButtonStyle}" 
+				Command="{Binding BonusEarnedCommand}" CommandParameter="{x:Static local:BonusValue.BV_40}" 
+				BackgroundColor="{Binding BonusEarnedStatus40, Converter={StaticResource StatusColorConverter}}" 
+				IsEnabled="{Binding BonusEarnedEnabled40}" InputTransparent="{Binding BonusEarnedEnabled25}" />
+		</Grid>
+		<StackLayout Grid.Row="11">
+			<BoxView Color="White" HeightRequest="1" WidthRequest="10000" />
+		</StackLayout>
+		<Grid Grid.Row="12">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" /> <!-- Timer -->
+				<ColumnDefinition Width="*" /> <!-- Scoresheet view -->
+<!--				<ColumnDefinition Width="*" /> -->
+			</Grid.ColumnDefinitions>
+			<Button x:Name="Timer" Text="{Binding TimerString}" Grid.Column="0" Style="{StaticResource ButtonStyle}"
+				Command="{Binding TimerTapCommand}" CommandParameter="{x:Static local:WhichPlayer.None}" />
+			<Label Text="" Grid.Column="1" Style="{StaticResource LabelStyle}" />
+			<Button x:Name="Scoresheet" Text="Scoresheet" Grid.Column="1" Style="{StaticResource ButtonStyle}"
+				Command="{Binding ScoresheetCommand}" CommandParameter="{x:Static local:WhichPlayer.None}" />
+<!--			<Button x:Name="Reset" Text="New Game" Grid.Column="2" Style="{StaticResource ButtonStyle}"
+				Command="{Binding ResetCommand}" CommandParameter="{x:Static local:WhichPlayer.None}" />-->
+		</Grid>
+	</Grid>
+</ContentPage>

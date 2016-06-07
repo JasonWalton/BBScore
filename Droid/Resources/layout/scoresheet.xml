@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlScoresheet"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <TextView
+        android:id="@+id/tvSSUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Team Name"
+        android:layout_alignParentLeft="true" />
+    <TextView
+        android:id="@+id/tvSSThem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Opponent Name"
+        android:layout_alignParentRight="true" />
+    
+	<View
+	    android:id="@+id/linebreak"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#FF909090" 
+        android:layout_below="@id/tvSSUs" />    
+    <!-- Insert rows for scores -->
+
+    <TextView
+        android:id="@+id/tvScore0Us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/linebreak" />
+    <TextView
+        android:id="@+id/tvScore0Them"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/linebreak" />
+    
+    <TextView
+        android:id="@+id/tvScore1Us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tvScore0Us" />
+    <TextView
+        android:id="@+id/tvScore1Them"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tvScore0Them" />
+
+    <TextView
+        android:id="@+id/tvScore2Us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tvScore1Us" />
+    <TextView
+        android:id="@+id/tvScore2Them"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tvScore1Them" />
+
+    <TextView
+        android:id="@+id/tvScore3Us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tvScore2Us" />
+    <TextView
+        android:id="@+id/tvScore3Them"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tvScore2Them" />
+
+    <TextView
+        android:id="@+id/tvScore4Us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tvScore3Us" />
+    <TextView
+        android:id="@+id/tvScore4Them"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tvScore3Them" />
+    
+    <TextView
+        android:id="@+id/tvScore5Us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tvScore4Us" />
+    <TextView
+        android:id="@+id/tvScore5Them"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tvScore4Them" />
+
+    <TextView
+        android:id="@+id/tvScore6Us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tvScore5Us" />
+    <TextView
+        android:id="@+id/tvScore6Them"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tvScore5Them" />
+
+    <TextView
+        android:id="@+id/tvScore7Us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tvScore6Us" />
+    <TextView
+        android:id="@+id/tvScore7Them"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tvScore6Them" />
+
+    <TextView
+        android:id="@+id/tvScore8Us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tvScore7Us" />
+    <TextView
+        android:id="@+id/tvScore8Them"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tvScore7Them" />
+
+    <TextView
+        android:id="@+id/tvScore9Us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tvScore8Us" />
+    <TextView
+        android:id="@+id/tvScore9Them"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tvScore8Them" />
+
+    <TextView
+        android:id="@+id/tvScore10Us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tvScore9Us" />
+    <TextView
+        android:id="@+id/tvScore10Them"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tvScore9Them" />
+
+    <TextView
+        android:id="@+id/tvScore11Us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tvScore10Us" />
+    <TextView
+        android:id="@+id/tvScore11Them"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tvScore10Them" />
+
+    <TextView
+        android:id="@+id/tvScore12Us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tvScore11Us" />
+    <TextView
+        android:id="@+id/tvScore12Them"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tvScore11Them" />
+
+    <TextView
+        android:id="@+id/tvScore13Us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tvScore12Us" />
+    <TextView
+        android:id="@+id/tvScore13Them"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tvScore12Them" />
+
+    <TextView
+        android:id="@+id/tvScore14Us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tvScore13Us" />
+    <TextView
+        android:id="@+id/tvScore14Them"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tvScore13Them" />
+    
+    <TextView
+        android:id="@+id/tvScore15Us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tvScore14Us" />
+    <TextView
+        android:id="@+id/tvScore15Them"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tvScore14Them" />
+
+    <TextView
+        android:id="@+id/tvScore16Us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tvScore15Us" />
+    <TextView
+        android:id="@+id/tvScore16Them"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tvScore15Them" />
+
+    <TextView
+        android:id="@+id/tvScore17Us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tvScore16Us" />
+    <TextView
+        android:id="@+id/tvScore17Them"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tvScore16Them" />
+
+    <TextView
+        android:id="@+id/tvScore18Us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tvScore17Us" />
+    <TextView
+        android:id="@+id/tvScore18Them"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tvScore17Them" />
+
+    <TextView
+        android:id="@+id/tvScore19Us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tvScore18Us" />
+    <TextView
+        android:id="@+id/tvScore19Them"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tvScore18Them" />
+
+    <TextView
+        android:id="@+id/tvScore20Us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tvScore19Us" />
+    <TextView
+        android:id="@+id/tvScore20Them"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tvScore19Them" />
+    <Button
+        android:id="@+id/btViewScorekeeper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Back to Scorekeeper" />
+</RelativeLayout>

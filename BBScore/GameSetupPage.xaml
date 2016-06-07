@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+			 x:Name="Game Setup"
+			 xmlns:local="clr-namespace:BBScore;assembly=BBScore"
+			 xmlns:localdroid="clr-namespace:BBScore.Droid;assembly=BBScore.Droid"
+			 x:Class="BBScore.GameSetupPage"
+			 BackgroundColor="Black">
+	<ContentPage.BindingContext>
+		<local:DataResourceAccess/>
+	</ContentPage.BindingContext>
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<local:BoolColorConverter x:Key="StatusColorConverter" />
+			<Style x:Key="LabelStyle" TargetType="Label">
+				<Setter Property="VerticalTextAlignment" Value="Center" />
+				<Setter Property="WidthRequest" Value="100" />
+				<Setter Property="TextColor" Value="White" />
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+	<ContentPage.Content>
+	<StackLayout VerticalOptions="Center" BackgroundColor="Black">
+		<StackLayout Orientation="Horizontal">
+			<Label Text="Bible Bowl Scorekeeper" WidthRequest="10000" FontSize="32" FontAttributes="Bold"
+				TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" >
+			</Label>
+		</StackLayout>
+		<StackLayout Orientation="Horizontal">
+			<Label Text="Team Name:" Style="{StaticResource LabelStyle}" />
+			<Entry Text="{Binding TeamName}" HorizontalOptions="FillAndExpand"/>
+		</StackLayout>
+		<StackLayout Orientation="Horizontal">
+			<Label Text="Opponent:" Style="{StaticResource LabelStyle}" />
+			<Entry Text="{Binding Opponent}" HorizontalOptions="FillAndExpand"/>
+		</StackLayout>
+		<StackLayout Orientation="Horizontal">
+			<Label Text="Player 1:" Style="{StaticResource LabelStyle}" />
+			<Entry Text="{Binding Player1}" HorizontalOptions="FillAndExpand"/>
+		</StackLayout>
+		<StackLayout Orientation="Horizontal">
+			<Label Text="Player 2:" Style="{StaticResource LabelStyle}" />
+			<Entry Text="{Binding Player2}" HorizontalOptions="FillAndExpand"/>
+		</StackLayout>
+		<StackLayout Orientation="Horizontal">
+			<Label Text="Player 3:" Style="{StaticResource LabelStyle}" />
+			<Entry Text="{Binding Player3}" HorizontalOptions="FillAndExpand"/>
+		</StackLayout>
+		<StackLayout Orientation="Horizontal">
+			<Label Text="Player 4:" Style="{StaticResource LabelStyle}" />
+			<Entry Text="{Binding Player4}" HorizontalOptions="FillAndExpand"/>
+		</StackLayout>
+		<StackLayout Orientation="Horizontal">
+			<Label Text="Round Robin" Style="{StaticResource LabelStyle}" />
+			<Switch IsToggled="{Binding GType}" />
+			<Label Text="Double Elimination" Style="{StaticResource LabelStyle}" WidthRequest="200" />
+		</StackLayout>
+<!--		<StackLayout>
+			<local:OnPlatformView>
+				<OnPlatform x:TypeArguments="View">
+					<OnPlatform.iOS>
+						<Label />
+					</OnPlatform.iOS>
+					<OnPlatform.Android>
+						<localdroid:CustomSwitch />
+					</OnPlatform.Android>
+				</OnPlatform>
+			</local:OnPlatformView>
+		</StackLayout>-->
+		<StackLayout>
+			<Button Text="Resume Game" IsVisible="{Binding GameInProgress}" TextColor="White" Command="{Binding ResumeGameCommand}" />
+			<Button Text="New Game" TextColor="White" Command="{Binding NewGameCommand}" />
+		</StackLayout>
+	</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

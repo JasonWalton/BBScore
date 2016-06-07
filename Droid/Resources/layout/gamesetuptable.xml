@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" >
+    
+    <!-- Team Name  -->
+    <TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="horizontal"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content" 
+	    android:layout_span="2" >
+	   	<TextView android:id="@+id/tvTeamLabel"
+	   		android:layout_width="fill_parent"
+	   		android:layout_height="wrap_content"
+	   		android:layout_weight="0.25"
+	   		android:text="Team:" />
+	   	<EditText android:id="@+id/etTeamName"
+		    android:layout_width="fill_parent" 
+	   		android:layout_height="wrap_content"
+	   		android:layout_weight="0.75"
+	   		android:singleLine="true"
+	   		android:selectAllOnFocus="true"
+	   		android:imeOptions="actionNext"
+	   		android:text="Us" />
+    </TableRow>
+	
+    <!-- Opponent Name  -->
+	<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="horizontal"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"  
+	    android:layout_span="2" >
+
+		<TextView
+		    android:id="@+id/tvOpponentLabel"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+	   		android:layout_weight="0.25"
+		    android:text="Opponent:" />
+	   	<EditText android:id="@+id/etOpponentName"
+	   		android:layout_weight="0.75"
+		    android:layout_width="fill_parent" 
+	   		android:layout_height="wrap_content"
+	   		android:singleLine="true"
+	   		android:selectAllOnFocus="true"
+	   		android:imeOptions="actionDone"
+	   		android:text="Them" />
+	</TableRow>
+	
+    <!-- Player names  -->
+	<TextView
+	    android:id="@+id/tvPlayersLabel"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:text="Players" />
+
+	<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="horizontal"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content" >
+	   	<EditText
+	   	    android:id="@+id/etPlayer1Name"
+	   	    android:layout_width="fill_parent"
+	   	    android:layout_height="wrap_content"
+	   		android:layout_weight="0.5"
+	   		android:singleLine="true"
+	   		android:selectAllOnFocus="true"
+	   		android:imeOptions="actionNext"
+	   	    android:text="Player 1" />
+	   	<EditText
+	   	    android:id="@+id/etPlayer2Name"
+	   	    android:layout_width="fill_parent"
+	   	    android:layout_height="wrap_content"
+	   		android:layout_weight="0.5"
+	   		android:singleLine="true"
+	   		android:selectAllOnFocus="true"
+	   		android:imeOptions="actionNext"
+	   	    android:text="Player 2" >
+	   	</EditText>
+
+	</TableRow>
+	
+    <!-- Player names  -->
+	<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="horizontal"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content" >
+	   	<EditText android:id="@+id/etPlayer3Name"
+		    android:layout_width="fill_parent" 
+	   		android:layout_height="wrap_content"
+	   		android:layout_weight="0.5"
+	   		android:singleLine="true"
+	   		android:selectAllOnFocus="true"
+	   		android:imeOptions="actionNext"
+	   		android:text="Player 3" />
+	   	<EditText
+	   	    android:id="@+id/etPlayer4Name"
+	   	    android:layout_width="fill_parent"
+	   	    android:layout_height="wrap_content"
+	   		android:layout_weight="0.5"
+	   		android:singleLine="true"
+	   		android:selectAllOnFocus="true"
+	   		android:imeOptions="actionDone"
+	   	    android:text="Player 4" />
+	</TableRow>
+	
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+		<RadioButton
+		    android:id="@+id/rbRRGame"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+	   		android:layout_weight="1"
+		    android:text="Round Robin" />
+	        
+		<RadioButton
+		    android:id="@+id/rbDEGame"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+	   		android:layout_weight="1"
+		    android:text="Double Elimination" />
+	</RadioGroup>
+
+	<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="horizontal"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content" >
+
+		<Button
+		    android:id="@+id/btBeginGame"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+	   		android:layout_weight="1"
+		    android:text="Begin" />
+
+	</TableRow>
+</TableLayout>

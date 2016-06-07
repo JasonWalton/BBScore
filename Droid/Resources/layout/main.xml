@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <!--
+    <TableRow>
+    	<TextView android:id="@+id/tvUs"
+    			android:text="Us" />
+    	<EditText android:id="@+id/etScoreUs"
+    			android:text="0" />
+    	<TextView android:id="@+id/tvThem"
+    			android:text="Them" />
+    	<EditText android:id="@+id/etScoreThem"
+    			android:text="0" />
+    </TableRow>
+    <TableRow>
+        <TextView android:id="@+id/tvQuestionIndex"
+        		android:text="Question #1" />
+    </TableRow>
+    <TableRow>
+    	<TextView android:id="@+id/tvPlayer1"
+    			android:text="Player 1" />
+    	<Button android:id="@+id/P1Correct" 
+    			android:text="10"/>
+    	<Button android:id="@+id/P1Miss" 
+    			android:text="X" />
+    </TableRow>
+    <TableRow>
+    	<TextView android:id="@+id/tvPlayer2"
+    			android:text="Player 2" />
+    	<Button android:id="@+id/P2Correct" 
+    			android:text="10"/>
+    	<Button android:id="@+id/P2Miss" 
+    			android:text="X" />
+    </TableRow>
+    <TableRow>
+    	<TextView android:id="@+id/tvPlayer3"
+    			android:text="Player 3" />
+    	<Button android:id="@+id/P3Correct" 
+    			android:text="10"/>
+    	<Button android:id="@+id/P3Miss" 
+    			android:text="X" />
+    </TableRow>
+    <TableRow>
+    	<TextView android:id="@+id/tvPlayer4"
+    			android:text="Player 4" />
+    	<Button android:id="@+id/P4Correct" 
+    			android:text="10"/>
+    	<Button android:id="@+id/P4Miss" 
+    			android:text="X" />
+    </TableRow>
+    <TableRow>
+    	<TextView android:id="@+id/tvBonusPossible"
+    			android:text="Bonus Max" />
+    </TableRow>
+    <TableRow>
+    	<Button android:id="@+id/btBonusMax20"
+    			android:text="20" />
+    	<Button android:id="@+id/btBonusMax25"
+    			android:text="25" />
+    	<Button android:id="@+id/btBonusMax30"
+    			android:text="30" />
+    	<Button android:id="@+id/btBonusMax35"
+    			android:text="35" />
+    	<Button android:id="@+id/btBonusMax40"
+    			android:text="40" />
+    </TableRow>
+    <TableRow>
+    	<TextView android:id="@+id/tvBonusEarned"
+    			android:text="Bonus Earned" />
+    </TableRow>
+    <TableRow>
+    	<Button android:id="@+id/btBonus0"
+    			android:text="0" />
+    	<Button android:id="@+id/btBonus5"
+    			android:text="5" />
+    	<Button android:id="@+id/btBonus10"
+    			android:text="10" />
+    	<Button android:id="@+id/btBonus15"
+    			android:text="15" />
+    	<Button android:id="@+id/btBonus20"
+    			android:text="20" />
+    	<Button android:id="@+id/btBonus25"
+    			android:text="25" />
+    	<Button android:id="@+id/btBonus30"
+    			android:text="30" />
+    	<Button android:id="@+id/btBonus35"
+    			android:text="35" />
+    	<Button android:id="@+id/btBonus40"
+    			android:text="40" />
+    </TableRow>
+    -->
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:id="@+id/radio0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="RadioButton" />
+
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RadioButton" />
+
+        <RadioButton
+            android:id="@+id/radio2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RadioButton" />
+    </RadioGroup>
+
+ </TableLayout>
